@@ -31,17 +31,20 @@ CampusLens is a full-stack web application that serves as a college-wide gallery
 ### Installation
 
 1. Clone the repository:
+
    ```
    git clone https://github.com/yourusername/campuslens.git
    cd campuslens
    ```
 
 2. Install dependencies:
+
    ```
    npm install
    ```
 
 3. Start the development server:
+
    ```
    npm run dev
    ```
@@ -52,35 +55,68 @@ CampusLens is a full-stack web application that serves as a college-wide gallery
 
 ```
 campuslens/
-├── client/               # Frontend React application
+├── frontend/                  # React frontend
 │   ├── src/
-│   │   ├── components/   # Reusable React components
-│   │   ├── pages/        # Page components
-│   │   ├── App.tsx       # Main App component
-│   │   └── main.tsx      # Entry point
-│   ├── index.html        # HTML template
-│   └── vite.config.ts    # Vite configuration
-├── server/               # Backend Express application
-│   ├── src/
-│   │   ├── routes/       # API routes
-│   │   ├── controllers/  # Route controllers
-│   │   ├── models/       # Database models
-│   │   └── app.ts        # Express app setup
-│   └── tsconfig.json     # TypeScript configuration for backend
-├── package.json          # Project dependencies and scripts
-├── tsconfig.json         # TypeScript configuration
+│   │   ├── components/        # Reusable UI components
+│   │   ├── pages/             # React Router pages
+│   │   ├── styles/            # Tailwind global styles
+│   │   ├── utils/             # Helper functions
+│   │   ├── App.tsx            # Main React component
+│   │   ├── main.tsx           # Entry point
+│   ├── public/                # Static assets
+│   ├── package.json           # Dependencies
+│   ├── vite.config.ts         # Vite configuration
+│   └── README.md              # Frontend documentation
+│
+├── backend/                   # Django backend
+│   ├── campuslens/            # Django project root
+│   │   ├── settings.py        # Django settings
+│   │   ├── urls.py            # URL routing
+│   │   ├── wsgi.py            # WSGI application entry
+│   │   ├── asgi.py            # ASGI application entry
+│   ├── api/                   # Django REST Framework (DRF) app
+│   │   ├── models.py          # Database models
+│   │   ├── views.py           # API views
+│   │   ├── serializers.py     # DRF serializers
+│   │   ├── urls.py            # API endpoints
+│   │   ├── permissions.py     # Authentication & permissions
+│   ├── media/                 # Uploaded media storage
+│   ├── static/                # Static files
+│   ├── manage.py              # Django management script
+│   ├── requirements.txt       # Python dependencies
+│   ├── .env                   # Environment variables
+│
+├── database/                  # PostgreSQL Database setup
+│   ├── migrations/            # Django migration files
+│   ├── seed.py                # Sample data for dev
+│
+├── storage/                   # Media storage config (Cloudinary)
+│   ├── cloudinary.py          # Cloudinary API setup
+│
+├── docs/                      # Documentation
+│   ├── README.md              # Main project readme
+│   ├── API_DOCS.md            # Backend API documentation
+│   ├── ARCHITECTURE.md        # System design overview
+│
+├── scripts/                   # Automation scripts
+│   ├── deploy.sh              # CI/CD Deployment script
+│   ├── setup.sh               # Dev setup script
+│
+└── .gitignore                 # Ignore node_modules, env files, etc.n
 └── README.md             # Project documentation
 ```
 
-## Running 
+## Running
 
-To run this project 
+To run this project
 
 Once the project is created, use the terminal in StackBlitz to clone this repository:
-   ```
-   git clone https://github.com/Ari-111/campuslens.git
-   cd campuslens
-   ```
+
+```
+git clone https://github.com/Ari-111/campuslens.git
+cd campuslens
+```
+
 5. Install dependencies:
    ```
    npm install
@@ -89,7 +125,6 @@ Once the project is created, use the terminal in StackBlitz to clone this reposi
    ```
    npm run dev
    ```
-
 
 ## Contributing
 
