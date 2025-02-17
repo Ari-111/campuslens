@@ -4,13 +4,12 @@ from django.contrib.auth.hashers import make_password
 from rest_framework.permissions import AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from ..serializers.user import UserSerializer
-from api.models.user import CustomUser
+from ..models.user import CustomUser
 from rest_framework.decorators import api_view, permission_classes
 from django.contrib.auth import authenticate
-from django.contrib.auth.models import User
 
 class RegisterView(generics.CreateAPIView):
-    queryset = User.objects.all()
+    queryset = CustomUser.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
@@ -34,7 +33,21 @@ def login_view(request):
     email = request.data.get('email')
     password = request.data.get('password')
     
-    user = authenticate(username=email, password=password)
+    if not email or not password:
+        return Response(
+            {'error': 'Please provide both email and password'}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    try:
+        user = CustomUser.objects.get(email=email)
+    except CustomUser.DoesNotExist:
+        return Response(
+            {'error': 'No account found with this email'},
+            status=status.HTTP_404_NOT_FOUND
+        )
+    
+    user = authenticate(email=email, password=password)
     
     if user is not None:
         refresh = RefreshToken.for_user(user)
