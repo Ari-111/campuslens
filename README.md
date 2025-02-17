@@ -17,8 +17,8 @@ CampusLens is a full-stack web application that serves as a college-wide gallery
 ## Tech Stack
 
 - Frontend: React with TypeScript, Vite, TailwindCSS
-- Backend: Node.js, Express.js
-- Database: MongoDB (planned)
+- Backend: Django
+- Database: postgresql (planned)
 - Authentication: JWT (planned)
 
 ## Getting Started
@@ -33,7 +33,7 @@ CampusLens is a full-stack web application that serves as a college-wide gallery
 1. Clone the repository:
 
    ```
-   git clone https://github.com/yourusername/campuslens.git
+   git clone https://github.com/Ari-111/campuslens.git
    cd campuslens
    ```
 
@@ -46,10 +46,10 @@ CampusLens is a full-stack web application that serves as a college-wide gallery
 3. Start the development server:
 
    ```
-   npm run dev
+   python manage.py runserver
    ```
 
-4. Open your browser and navigate to `http://localhost:5173` to view the application.
+4. Open your browser and navigate to `http://localhost:8000` to view the application.
 
 ## Project Structure
 
